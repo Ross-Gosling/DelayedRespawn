@@ -1,0 +1,12 @@
+
+name: DelayedRespawn
+version: 1.0
+description: Temporarily prevents dead players from respawning until the configured time is up.
+author: RossGosling
+
+main: DelayedRespawn.Main
+database: false
+
+commands:
+    delayedrespawn:
+        description: "Used to configure DelayedRespawn."
