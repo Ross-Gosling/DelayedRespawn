@@ -1,4 +1,4 @@
-package systems;
+package uk.co.cherrygoose.delayedrespawn.systems;
 
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;

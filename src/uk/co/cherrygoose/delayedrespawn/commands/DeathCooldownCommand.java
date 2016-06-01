@@ -1,4 +1,4 @@
-package commands;
+package uk.co.cherrygoose.delayedrespawn.commands;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,8 +14,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import systems.DeathCooldown;
 import uk.co.cherrygoose.delayedrespawn.Main;
+import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
 
 public class DeathCooldownCommand {
 

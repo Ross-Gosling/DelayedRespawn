@@ -4,7 +4,7 @@ version: 1.0
 description: Temporarily prevents dead players from respawning until the configured time is up.
 author: RossGosling
 
-main: uk.co.cherrygoose.delayedrepsawn.Main
+main: uk.co.cherrygoose.delayedrespawn.Main
 database: false
 
 commands:

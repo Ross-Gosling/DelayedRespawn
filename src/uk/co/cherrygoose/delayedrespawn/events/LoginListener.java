@@ -1,4 +1,4 @@
-package events;
+package uk.co.cherrygoose.delayedrespawn.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -7,7 +7,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
-import systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
 
 public class LoginListener implements Listener {
 

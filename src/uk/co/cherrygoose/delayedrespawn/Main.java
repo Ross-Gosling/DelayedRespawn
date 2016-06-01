@@ -9,11 +9,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import commands.DeathCooldownCommand;
-import events.DeathListener;
-import events.KickListener;
-import events.LoginListener;
-import events.RespawnListener;
+import uk.co.cherrygoose.delayedrespawn.commands.DeathCooldownCommand;
+import uk.co.cherrygoose.delayedrespawn.events.DeathListener;
+import uk.co.cherrygoose.delayedrespawn.events.KickListener;
+import uk.co.cherrygoose.delayedrespawn.events.LoginListener;
+import uk.co.cherrygoose.delayedrespawn.events.RespawnListener;
 
 public class Main extends JavaPlugin 
 {
