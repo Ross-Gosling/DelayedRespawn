@@ -15,10 +15,10 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
 import uk.co.cherrygoose.delayedrespawn.Main;
-import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.DelayedRespawn;
 import uk.co.cherrygoose.delayedrespawn.systems.Utils;
 
-public class DeathCooldownCommand {
+public class DelayedRespawnCommand {
 
 	@SuppressWarnings("deprecation")
 	public static boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) 
@@ -47,7 +47,7 @@ public class DeathCooldownCommand {
 							for (OfflinePlayer offlinePlayer : Bukkit.getOfflinePlayers())
 							{
 								// If player has death cooldown
-								if(DeathCooldown.get(offlinePlayer) > 0)
+								if(DelayedRespawn.get(offlinePlayer) > 0)
 								{
 									// Adds player name to list
 									coolingPlayerUUIDs.add(offlinePlayer.getUniqueId());
@@ -63,7 +63,7 @@ public class DeathCooldownCommand {
 								OfflinePlayer targetPlayer = Bukkit.getServer().getOfflinePlayer(args[1]);
 								
 								// Sets deathcooldown
-								DeathCooldown.set(targetPlayer, 0);
+								DelayedRespawn.set(targetPlayer, 0);
 								
 								// Sends player feedback
 								player.sendMessage(ChatColor.WHITE + targetPlayer.getName() + " cleared of death cooldown");
@@ -189,7 +189,7 @@ public class DeathCooldownCommand {
 						for (OfflinePlayer offlinePlayer : Bukkit.getOfflinePlayers())
 						{
 							// If player has death cooldown
-							if(DeathCooldown.get(offlinePlayer) > 0)
+							if(DelayedRespawn.get(offlinePlayer) > 0)
 							{
 								// Adds player name to list
 								coolingPlayerUUIDs.add(offlinePlayer.getUniqueId());
@@ -202,7 +202,7 @@ public class DeathCooldownCommand {
 							OfflinePlayer targetPlayer = Bukkit.getServer().getOfflinePlayer(args[1]);
 							
 							// Sets deathcooldown
-							DeathCooldown.set(targetPlayer, 0);
+							DelayedRespawn.set(targetPlayer, 0);
 							
 							// Sends console feedback
 							Bukkit.getLogger().info("["+Main.pluginName+"] " + targetPlayer.getName() + " cleared of death cooldown");
@@ -356,7 +356,7 @@ public class DeathCooldownCommand {
 					for (OfflinePlayer offlinePlayer : Bukkit.getOfflinePlayers())
 					{
 						// If player has death cooldown
-						if(DeathCooldown.get(offlinePlayer) > 0)
+						if(DelayedRespawn.get(offlinePlayer) > 0)
 						{
 							// If player name starts with argument
 							if(offlinePlayer.getName().toLowerCase().startsWith(args[1].toLowerCase()))
@@ -374,7 +374,7 @@ public class DeathCooldownCommand {
 					for (OfflinePlayer offlinePlayer : Bukkit.getOfflinePlayers())
 					{
 						// If player has death cooldown
-						if(DeathCooldown.get(offlinePlayer) > 0)
+						if(DelayedRespawn.get(offlinePlayer) > 0)
 						{
 							// Adds player name to list
 							returnedPlayerNames.add(offlinePlayer.getName());

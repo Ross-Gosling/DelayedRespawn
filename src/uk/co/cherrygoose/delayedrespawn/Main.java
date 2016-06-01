@@ -9,7 +9,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import uk.co.cherrygoose.delayedrespawn.commands.DeathCooldownCommand;
+import uk.co.cherrygoose.delayedrespawn.commands.DelayedRespawnCommand;
 import uk.co.cherrygoose.delayedrespawn.events.DeathListener;
 import uk.co.cherrygoose.delayedrespawn.events.KickListener;
 import uk.co.cherrygoose.delayedrespawn.events.LoginListener;
@@ -57,7 +57,7 @@ public class Main extends JavaPlugin
     	// If "deathcooldown" command
 		if(cmd.getName().equalsIgnoreCase("delayedrespawn"))
 		{
-			return DeathCooldownCommand.onCommand(sender, cmd, commandLabel, args);
+			return DelayedRespawnCommand.onCommand(sender, cmd, commandLabel, args);
 		}
 		
     	return false;
@@ -68,7 +68,7 @@ public class Main extends JavaPlugin
     	// If "deathcooldown" command
 		if(cmd.getName().equalsIgnoreCase("delayedrespawn"))
 		{
-			return DeathCooldownCommand.onTabComplete(sender, cmd, commandLabel, args);
+			return DelayedRespawnCommand.onTabComplete(sender, cmd, commandLabel, args);
 		}
 		
 		return null;

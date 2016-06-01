@@ -5,7 +5,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.DelayedRespawn;
 
 public class DeathListener implements Listener 
 {
@@ -13,6 +13,6 @@ public class DeathListener implements Listener
 	public void onPlayerDeath(PlayerDeathEvent event)
 	{
 		// Adds death cooldown to player
-		DeathCooldown.add(event.getEntity());
+		DelayedRespawn.add(event.getEntity());
 	}
 }

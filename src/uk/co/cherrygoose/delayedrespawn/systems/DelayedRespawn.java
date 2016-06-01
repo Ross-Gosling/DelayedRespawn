@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 
 import uk.co.cherrygoose.delayedrespawn.Main;
 
-public class DeathCooldown 
+public class DelayedRespawn 
 {
 	public static void update(Player player)
 	{

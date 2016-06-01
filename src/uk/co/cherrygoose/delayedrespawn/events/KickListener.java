@@ -8,7 +8,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerKickEvent;
 
-import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.DelayedRespawn;
 
 public class KickListener implements Listener 
 {
@@ -19,7 +19,7 @@ public class KickListener implements Listener
 		Player player = event.getPlayer();
 		
 		// If kicked with deathcooldown
-		if(DeathCooldown.get(player) > 0.0)
+		if(DelayedRespawn.get(player) > 0.0)
 		{
 	    	// Logs to console
 	    	Bukkit.getLogger().info("[DelayedRespawn] " + player.getName() + " kicked (Death Cooldown > 0)");
