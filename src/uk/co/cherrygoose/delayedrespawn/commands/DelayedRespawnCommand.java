@@ -388,6 +388,15 @@ public class DelayedRespawnCommand {
 				// Returns list
 				return returnedPlayerNames;
 			}
+			// If has "set" arg and another
+			else if (args[0].equalsIgnoreCase("set") && args.length == 2)
+			{
+				// Declares array for appropriate arguments
+				ArrayList<String> returnedArgs = new ArrayList<String>();
+				
+				// Returns list
+				return returnedArgs;
+			}
 		}
 			
 		return null;
