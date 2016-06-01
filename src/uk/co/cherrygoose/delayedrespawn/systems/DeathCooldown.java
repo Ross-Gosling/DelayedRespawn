@@ -65,30 +65,59 @@ public class DeathCooldown
 		return  0.0;
 	}
 
-	public static String toReadable(double raw)
+	public static String toReadable(double rawHours)
 	{
-		int dHours = (int)Math.floor(raw);
-		int dMinutes = (int)((raw - dHours) *60);
+		// Defines integers for hours and minutes
+		int dHours = (int)Math.floor(rawHours);
+		int dMinutes = (int)((rawHours - dHours) *60);
 		
+		// Declares var for output
 		String output = "";
 		
+		// If Hours are greater than 0
 		if(dHours > 0) 
 		{
-			output += (dHours + " Hours");
+			// Adds Hours to output
+			output += (dHours + " " + sortPlural("Hour", dHours));
 			
+			// If Minutes are greater than 0
 			if(dMinutes > 0)
 			{
-				output += (" and " + dMinutes + " Minutes");
+				// Adds Minutes to output
+				output += (" and " + dMinutes + " " + sortPlural("Minute", dMinutes));
 			}
 		}
+		// Else it's less than an hour
 		else 
 		{
+			// If Minutes are greater than 0
 			if(dMinutes > 0)
 			{
-				output += (dMinutes + " Minutes");
+				// Adds Minutes to output
+				output += (dMinutes + " " + sortPlural("Minute", dMinutes));
+			}
+			// Else it's less than a minute
+			else
+			{
+				// Adds message to output
+				output += ("less than a minute");
 			}
 		}
 		
+		// Return output
 		return output;
+	}
+	
+	private static String sortPlural(String str, int value)
+	{
+		// If value is not 1
+		if(value != 1)
+		{
+			// Returns string as plural
+			return str + "s";
+		}
+		
+		// Returns string
+		return str;
 	}
 }
