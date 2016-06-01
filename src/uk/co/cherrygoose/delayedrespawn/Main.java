@@ -1,4 +1,4 @@
-package DelayedRespawn;
+package uk.co.cherrygoose.delayedrespawn;
 
 import java.util.List;
 

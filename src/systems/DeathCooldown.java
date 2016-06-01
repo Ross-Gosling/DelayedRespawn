@@ -3,7 +3,7 @@ package systems;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
-import DelayedRespawn.Main;
+import uk.co.cherrygoose.delayedrespawn.Main;
 
 public class DeathCooldown 
 {

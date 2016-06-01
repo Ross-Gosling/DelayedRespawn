@@ -7,8 +7,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-import DelayedRespawn.Main;
 import systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.Main;
 
 public class RespawnListener implements Listener 
 {

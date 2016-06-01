@@ -14,8 +14,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
-import DelayedRespawn.Main;
 import systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.Main;
 
 public class DeathCooldownCommand {
 
