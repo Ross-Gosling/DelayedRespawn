@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
 import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.Utils;
 
 public class LoginListener implements Listener {
 
@@ -31,10 +32,10 @@ public class LoginListener implements Listener {
 		else 
 		{
 			// Disallows connection and displays the remaining cooldown
-			event.disallow(null, "Respawn available in " + DeathCooldown.toReadable(DeathCooldown.get(player)) + ".");
+			event.disallow(null, "Respawn available in " + Utils.toReadable(DeathCooldown.get(player)) + ".");
 
 	    	// Logs to console
-	    	Bukkit.getLogger().info("[DelayedRespawn] " + player.getName() + " connection disallowed (Remaining cooldown: " + DeathCooldown.toReadable(DeathCooldown.get(player)) + ")");
+	    	Bukkit.getLogger().info("[DelayedRespawn] " + player.getName() + " connection disallowed (Remaining cooldown: " + Utils.toReadable(DeathCooldown.get(player)) + ")");
 		}
 	}
 }

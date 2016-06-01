@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
 import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.Utils;
 
 public class RespawnListener implements Listener 
 {
@@ -20,7 +21,7 @@ public class RespawnListener implements Listener
 		if(DeathCooldown.get(player) > 0)
 		{			
 			// Kicks player
-			player.kickPlayer("Respawn available in " + DeathCooldown.toReadable(DeathCooldown.get(player)));
+			player.kickPlayer("Respawn available in " + Utils.toReadable(DeathCooldown.get(player)));
 		}
 	}
 }

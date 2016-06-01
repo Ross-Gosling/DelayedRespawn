@@ -16,6 +16,7 @@ import org.bukkit.entity.Player;
 
 import uk.co.cherrygoose.delayedrespawn.Main;
 import uk.co.cherrygoose.delayedrespawn.systems.DeathCooldown;
+import uk.co.cherrygoose.delayedrespawn.systems.Utils;
 
 public class DeathCooldownCommand {
 
@@ -106,10 +107,10 @@ public class DeathCooldownCommand {
 									Main.config().set("Delay", Double.parseDouble(args[1]));
 
 									// Sends player feedback
-									player.sendMessage(ChatColor.WHITE + "New respawn delay set: " + Double.parseDouble(args[1]) + " hours");
+									player.sendMessage(ChatColor.WHITE + "New respawn delay set: " + Utils.toReadable(Double.parseDouble(args[1])));
 				
 							    	// Logs to console
-							    	Bukkit.getLogger().info("["+Main.pluginName+"] New respawn delay set: " + Double.parseDouble(args[1]) + " hours");
+							    	Bukkit.getLogger().info("["+Main.pluginName+"] New respawn delay set: " + Double.parseDouble(args[1]) + " " + Utils.sortPlural("hour", Double.parseDouble(args[1])));
 								}
 								// Invalid duration
 								else
@@ -239,7 +240,7 @@ public class DeathCooldownCommand {
 								Main.config().set("Delay", Double.parseDouble(args[1]));
 
 						    	// Logs to console
-						    	Bukkit.getLogger().info("["+Main.pluginName+"] New respawn delay set: " + Double.parseDouble(args[1]) + " hours");
+						    	Bukkit.getLogger().info("["+Main.pluginName+"] New respawn delay set: " + Double.parseDouble(args[1]) + " " + Utils.sortPlural("hour", Double.parseDouble(args[1])));
 							}
 							// Invalid duration
 							else
