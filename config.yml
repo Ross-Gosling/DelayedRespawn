@@ -1,7 +1,4 @@
 #DelayedRespawn Configuration File
 
-#Delay (hours)
+#Respawn Delay (hours)
 Delay: 24
-
-# Player data
-PlayerData:

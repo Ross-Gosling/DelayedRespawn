@@ -12,7 +12,7 @@ public class DelayedRespawn
 		long currentTimeSecs = System.currentTimeMillis() / 1000;
 		long currentTimeMinutes = currentTimeSecs / 60;
 		
-		String line = Main.config().getString("PlayerData." + player.getUniqueId() + ".DeathCooldown");
+		String line = Main.playerdata().getString(player.getUniqueId() + ".DeathCooldown");
 		
 		if(line != null)
 		{
@@ -45,23 +45,24 @@ public class DelayedRespawn
 	public static void set(OfflinePlayer player, double hours)
 	{
 		// Sets death cooldown of player in config
-		Main.config().set("PlayerData." + player.getUniqueId() + ".DeathCooldown", hours + ":" + (System.currentTimeMillis()/1000)/60);
+		Main.playerdata().set(player.getUniqueId() + ".DeathCooldown", hours + ":" + (System.currentTimeMillis()/1000)/60);
 	}
 	
 	public static double get(OfflinePlayer player)
 	{		
-		// If deathCooldown is not null
-		if(Main.config().getString("PlayerData." + player.getUniqueId() + ".DeathCooldown") != null)
+		// If deathCooldown exists
+		try
 		{
-			String line = Main.config().getString("PlayerData." + player.getUniqueId() + ".DeathCooldown");
+			String line = Main.playerdata().getString(player.getUniqueId() + ".DeathCooldown");
 			
 			String[] splitLine = line.split(":");
 			
 			// Return deathcooldown of player from config
 			return Double.parseDouble(splitLine[0]);
 		}
-		
-		// Else return 0.0
-		return  0.0;
+		catch(NullPointerException e)
+		{
+			return  0.0;
+		}
 	}
 }

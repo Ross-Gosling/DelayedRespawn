@@ -1,11 +1,13 @@
 package uk.co.cherrygoose.delayedrespawn;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,17 +22,22 @@ public class Main extends JavaPlugin
 	// Plugin for referencing in use
     private static Plugin plugin;
     public static String pluginName;
-    
+	// YamlConfiguration for player data storage
+	private static YamlConfiguration playerDataFile = new YamlConfiguration();
+	
     @Override
     public void onEnable() 
     {
     	// Assigns plugin to variable
 		plugin = this;
-		pluginName = plugin.getDescription().getName();    	
-		
+		pluginName = plugin.getDescription().getName();  
+
 		// Creates a config
 		plugin.saveDefaultConfig();
-	    
+
+		// Loads playerData yaml file
+		playerDataFile = loadYml("plugins/" + pluginName + "/playerdata.yml");
+		
 		// Registers all event listeners
 		Bukkit.getServer().getPluginManager().registerEvents(new DeathListener(), plugin);
 		Bukkit.getServer().getPluginManager().registerEvents(new KickListener(), plugin);
@@ -44,9 +51,9 @@ public class Main extends JavaPlugin
     @Override
     public void onDisable() 
     {
-    	// Saves config
-    	plugin().saveConfig();
-    	
+		// Saves player data
+		saveYml(playerDataFile, "plugins/" + pluginName + "/playerdata.yml");
+
     	// Logs to console
     	Bukkit.getLogger().info("["+pluginName+"] Disabled");
     }
@@ -83,5 +90,52 @@ public class Main extends JavaPlugin
     {
     	// Returns plugin
     	return plugin;
+    }
+    public static YamlConfiguration playerdata()
+    {
+    	// Returns yaml
+    	return playerDataFile;
+    }    
+    
+    public static YamlConfiguration loadYml(String sDirectory)
+    {  
+        YamlConfiguration yml = new YamlConfiguration();
+        
+        try
+        {
+            yml.load(sDirectory);
+        }
+        catch(FileNotFoundException e)
+        {
+            try
+            {
+                yml.save(sDirectory);//Create the file if it didn't exist
+            }
+            catch(Exception e2)
+            {
+            	e.printStackTrace();
+            }
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
+        
+        return yml;
+    }
+
+    public static boolean saveYml(YamlConfiguration ymlConfig, String sDirectory)
+    {
+        try
+        {
+        	ymlConfig.save(sDirectory);
+            return true;
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
+        
+        return false;
     }
 }
